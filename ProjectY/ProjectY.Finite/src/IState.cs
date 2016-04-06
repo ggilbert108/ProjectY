@@ -7,5 +7,6 @@ namespace ProjectY.Finite
         void AddTransition(IState transition, Character input);
         HashSet<StatePath> OnInput(char input);
         HashSet<StatePath> OnInput(char[] input);
+        void Print();
     }
 }

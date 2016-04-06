@@ -101,6 +101,11 @@ namespace ProjectY.Finite
                 StatePath state = dfsStack.Pop();
                 HashSet<StatePath> adjacents = state.State.OnInput(Eps);
 
+                foreach (StatePath adjacent in adjacents)
+                {
+                    adjacent.Recorded += state.Recorded;
+                }
+
                 var exits =
                     from adjacent in adjacents
                     where adjacent.Marked
@@ -115,7 +120,6 @@ namespace ProjectY.Finite
 
                 foreach (StatePath adjacent in adjacents)
                 {
-                    adjacent.Recorded += state.Recorded;
                     if (!closure.Contains(adjacent))
                     {
                         closure.Add(adjacent);
@@ -246,5 +250,9 @@ namespace ProjectY.Finite
 
         #endregion
 
+        public void Print()
+        {
+            initial.Print();
+        }
     }
 }

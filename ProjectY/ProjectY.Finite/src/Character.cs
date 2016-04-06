@@ -133,5 +133,10 @@ namespace ProjectY.Finite
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return value;
+        }
     }
 }
